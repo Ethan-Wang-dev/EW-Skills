@@ -6,9 +6,9 @@
 
 [中文](README.zh-CN.md)
 
-### Turn AI agents into reliable collaborators
+### Give your agent the playbook experts never write down
 
-<em>Skills are more than prompts: they combine context, workflows, tools, and checks so agents can take real work from intent to verifiable results.</em>
+<em>EW-Skills captures the questions, decisions, tools, evidence checks, and recovery paths behind real work—so developers and AI builders can reuse how the work gets done, not just the final answer.</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>

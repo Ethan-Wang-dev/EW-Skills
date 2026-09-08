@@ -6,9 +6,9 @@
 
 [English](README.md)
 
-### 让 AI Agent 成为真正可靠的协作者
+### 把专家从不写下来的做事方法，交给 Agent
 
-<em>Skill 不只是提示词，而是把上下文、工作流、工具和检查标准组合起来，让 Agent 从理解需求一路推进到可验证的结果。</em>
+<em>EW-Skills 把真实工作中的提问、判断、工具、证据检查和失败处理整理出来，让开发者和 AI 实践者复用的不只是答案，还有答案背后的做事方法。</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
