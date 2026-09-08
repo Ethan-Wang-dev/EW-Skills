@@ -6,9 +6,9 @@
 
 [English](README.md)
 
-### 把好想法变成 AI Agent 可以直接使用的 Skill
+### 让 AI Agent 成为真正可靠的协作者
 
-<em>为开发者和 AI 实践者持续打磨实用、可复用、靠谱的 Skills。</em>
+<em>Skill 不只是提示词，而是把上下文、工作流、工具和检查标准组合起来，让 Agent 从理解需求一路推进到可验证的结果。</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>

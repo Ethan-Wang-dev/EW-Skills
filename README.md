@@ -6,9 +6,9 @@
 
 [中文](README.zh-CN.md)
 
-### Turn good ideas into skills your AI agent can use
+### Turn AI agents into reliable collaborators
 
-<em>Practical, reusable, dependable skills for developers and AI practitioners.</em>
+<em>Skills are more than prompts: they combine context, workflows, tools, and checks so agents can take real work from intent to verifiable results.</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
