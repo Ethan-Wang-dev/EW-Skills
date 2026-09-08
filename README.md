@@ -8,7 +8,7 @@
 
 ### Turn good ideas into skills your AI agent can use
 
-<em>Practical, reusable, evidence-driven skills for developers and AI practitioners.</em>
+<em>Practical, reusable, dependable skills for developers and AI practitioners.</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
@@ -34,42 +34,46 @@
 
 ## What is this?
 
-EW-Skills is a growing collection of skills for AI coding agents. Each skill turns a difficult task into a clear workflow, useful tools, and an output you can check.
+EW-Skills is a collection of AI Agent Skills that keeps growing. Each Skill turns a difficult task into a clear workflow, useful tools, and a result you can check, so your agent can help move the work forward with you.
 
-The first skill is **EW-Repo Scout**. Before you build a product, tool, or new skill, it finds related GitHub projects and shows their users, workflows, evidence, and boundaries.
+The first example is **EW-Repo Scout**. Before you build a product, tool, or new skill, it finds related GitHub projects and shows their users, workflows, evidence, and boundaries. It is one example in EW-Skills; more skills will follow.
 
-## Why use it?
+## EW-Repo Scout
+
+Find open-source projects on GitHub that are similar to your idea, Skill, or product. Compare their users, problems, workflows, product differences, and implementation evidence. It can also find an existing Skill for your task and explain how to install it, call it, and meet its prerequisites.
+
+### Why use it?
 
 <table>
 <tr>
 <td width="50%">
 
-### 🔎 Search from the real problem
+### 🚀 Avoid wrong turns before you build
 
-Build queries from the user task, situation, and desired result. This avoids the false matches caused by searching one keyword.
+Before coding, see whether someone already solved it and how far they got, so you do not rebuild the same thing.
 
 </td>
 <td width="50%">
 
-### 🧭 Make “similar” clear
+### 🎯 Find solutions that really fit
 
-Separate direct products, adjacent products, technical components, and references. Rate product fit, feature coverage, and technical fit independently.
+Do not let similar names or keywords mislead you. Find the projects and Skills that solve the same problem.
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-### 🧪 Check the key path
+### 🧭 See the gap before you decide
 
-Trace the entry, processing, state or storage, and output for important projects. If the docs do not prove a claim, mark it as unconfirmed.
+See what you can use directly, what is worth borrowing, and what you still need to build.
 
 </td>
 <td width="50%">
 
-### 📋 Get a report you can act on
+### ⚡ Move to the next step faster
 
-See the workflow, overlap, differences, maintenance, maturity, license, and evidence links. Decide what to use, borrow, or explore next.
+Turn scattered projects, information, and judgments into a clear path to use, validate, or build.
 
 </td>
 </tr>
@@ -89,9 +93,11 @@ Then describe your idea or task:
 Use EW-Repo Scout to find an existing Skill that saves web articles as Markdown and explain how to install and use it.
 ```
 
-If the search direction is unclear, the agent asks one focused question first. After that it handles retrieval, evidence collection, and the report for you.
+If the search direction is unclear, the agent asks one focused question first. Once the direction is clear, it handles retrieval, evidence collection, and the report for you.
 
-## EW-Repo Scout workflow
+## How a Skill works
+
+Every Skill has its own specialty, but most follow a similar path:
 
 ```mermaid
 flowchart LR
@@ -131,15 +137,25 @@ EW-Skills/
 └── README.md
 ```
 
+## Local validation
+
+For EW-Repo Scout:
+
+```bash
+python3 -m unittest discover -s ew-repo-scout/tests -v
+```
+
+For higher GitHub API quotas or Code Search, set `GITHUB_TOKEN` or `GH_TOKEN`. Unauthenticated requests can still use Repository, Topic, and README search, but are more likely to hit GitHub rate limits.
+
 ## Contribute
 
-EW-Skills will keep growing. Open an Issue or Pull Request to:
+EW-Skills will keep growing. Found a problem? Open an Issue. Have an improvement? Send a Pull Request. Want to share your own Skill? Bring it here:
 
 - improve a skill's workflow or evidence rules;
 - fix retrieval, deduplication, or report rendering;
 - add a useful, reusable skill.
 
-Fork the repository and adapt any skill to your workflow. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Whether it is a one-line wording fix, a small bug fix, or a brand-new Skill, contributions are welcome. Fork the repository and adapt it to your workflow. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
@@ -147,6 +163,6 @@ Released under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Every good idea deserves a faster next step.**
+**Bring your idea. Let us make the next step together.**
 
 </div>

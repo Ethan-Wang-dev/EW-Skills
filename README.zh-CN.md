@@ -1,18 +1,29 @@
 <div align="center">
 
-# EW-Skills
+<img src="assets/ew-skills-avatar.png" alt="EW-Skills Q版头像" width="360">
+
+# EW-SKILLS
 
 [English](README.md)
 
 ### 把好想法变成 AI Agent 可以直接使用的 Skill
 
-为开发者和 AI 实践者持续打磨实用、可复用、靠谱的 Skills。
+<em>为开发者和 AI 实践者持续打磨实用、可复用、靠谱的 Skills。</em>
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/network/members"><img src="https://img.shields.io/github/forks/Ethan-Wang-dev/EW-Skills?style=flat-square" alt="GitHub forks"></a>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Ethan-Wang-dev/EW-Skills?style=flat-square" alt="License"></a>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills"><img src="https://img.shields.io/badge/AI%20agents-Codex%20%7C%20Claude%20Code-6f42c1?style=flat-square" alt="AI agents"></a>
+</p>
+
+<p><strong>使用的工具和技术：</strong></p>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Markdown-000000.svg?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown">
+  <img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/Codex%20%7C%20Claude%20Code-6f42c1.svg?style=for-the-badge" alt="Codex 和 Claude Code">
 </p>
 
 [开始使用](#快速开始) · [查看 EW-Repo Scout](ew-repo-scout/) · [参与贡献](CONTRIBUTING.zh-CN.md)
@@ -90,12 +101,23 @@ EW-Skills 是一个会持续长大的 AI Agent Skill 集合。每个 Skill 都�
 
 ```mermaid
 flowchart LR
-    A[描述 idea 或任务] --> B[明确目标和限制]
-    B --> C[选择工具和信息源]
-    C --> D[执行关键步骤]
-    D --> E[检查证据和结果]
-    E --> F[给出可执行的下一步]
+    A[描述 idea 或任务] --> B[明确用户和场景]
+    B --> C[从多个角度检索 GitHub]
+    C --> D[阅读 README 和项目证据]
+    D --> E[检查关键工作流和源码]
+    E --> F[比较匹配度、差异和状态]
+    F --> G[整理项目卡片和下一步]
 ```
+
+### 报告会回答什么
+
+| 你想知道什么 | 你会得到什么 |
+| --- | --- |
+| 谁做过类似的东西？ | 候选仓库、发现路径和产品定位 |
+| 它真的相似吗？ | 对目标用户、问题、工作流和结果的比较 |
+| 关键功能真的存在吗？ | 源码观察、文档证据，或明确标注的未知项 |
+| 应该先看哪个项目？ | 分开的产品、功能和技术匹配度 |
+| 能不能直接复用？ | 维护状态、成熟度、许可证和适用边界 |
 
 ## 仓库结构
 
@@ -104,9 +126,12 @@ EW-Skills/
 ├── ew-repo-scout/
 │   ├── SKILL.md                    # Skill 行为规则与输出要求
 │   ├── agents/openai.yaml          # Codex 界面名称与默认提示词
-│   ├── scripts/                   # 可复用脚本
-│   ├── references/                # 工作流、证据和输出规则
-│   └── tests/                     # 回归测试
+│   ├── scripts/
+│   │   ├── github_discover.py      # GitHub 检索、去重和证据收集
+│   │   ├── render_report.py        # 校验并渲染项目卡片
+│   │   └── evaluate_results.py     # 维护者使用的评测工具
+│   ├── references/                 # 检索、比较和报告规则
+│   └── tests/                      # 回归测试
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
