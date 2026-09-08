@@ -2,9 +2,9 @@
 
 [English](CONTRIBUTING.md)
 
-欢迎提交 Issue 和 Pull Request！你可以反馈使用中遇到的问题、改进现有 Skill，或贡献自己的 Skill。
+欢迎来一起贡献！发现问题就提 Issue，想到改进就发 Pull Request，想分享自己的 Skill 也可以直接来。
 
-EW-Skills 是一个持续更新的 AI Agent Skill 集合。提交新 Skill 或修改现有 Skill 时，请保持每个 Skill 自包含、可读、可修改，并说明它解决的用户问题。
+EW-Skills 是一个持续更新的 AI Agent Skill 集合。提交新 Skill 或修改现有 Skill 时，请让它保持自包含、可读、好修改，并说清楚它解决了什么用户问题。
 
 提交前请：
 

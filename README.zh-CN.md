@@ -6,7 +6,7 @@
 
 ### 把好想法变成 AI Agent 可以直接使用的 Skill
 
-为开发者和 AI 实践者持续打磨实用、可复用、以证据为基础的 Skills。
+为开发者和 AI 实践者持续打磨实用、可复用、靠谱的 Skills。
 
 <p>
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
@@ -15,7 +15,7 @@
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills"><img src="https://img.shields.io/badge/AI%20agents-Codex%20%7C%20Claude%20Code-6f42c1?style=flat-square" alt="AI agents"></a>
 </p>
 
-[开始使用](#快速开始) · [查看 EW-Repo Scout](ew-repo-scout/) · [参与贡献](CONTRIBUTING.md)
+[开始使用](#快速开始) · [查看 EW-Repo Scout](ew-repo-scout/) · [参与贡献](CONTRIBUTING.zh-CN.md)
 
 </div>
 
@@ -23,7 +23,7 @@
 
 ## 这是什么
 
-EW-Skills 是一个持续更新的 AI Agent Skill 集合。每个 Skill 都把一类复杂任务整理成清晰的步骤、合适的工具和可以检查的结果，让 Agent 不只是给建议，而是帮助你把事情推进下去。
+EW-Skills 是一个会持续长大的 AI Agent Skill 集合。每个 Skill 都把一类复杂任务整理成清晰的步骤、合适的工具和可以检查的结果，让 Agent 不只是给建议，而是陪你把事情推进下去。
 
 当前仓库的第一个示例是 **EW-Repo Scout**。它帮助你在开发产品、工具或新 Skill 前，找到 GitHub 上相似的项目，弄清楚它们服务谁、解决什么问题、怎么工作，以及哪些地方值得借鉴。它只是 EW-Skills 的一个示例，后续还会加入更多 Skill。
 
@@ -82,11 +82,11 @@ EW-Skills 是一个持续更新的 AI Agent Skill 集合。每个 Skill 都把�
 用 EW-Repo Scout 帮我找一个能把网页文章整理成 Markdown 的现成 Skill，并告诉我怎么安装和使用。
 ```
 
-如果任务存在会改变方向的歧义，Agent 会先问一个关键问题；确认后自动完成需要的检索、证据收集和结果整理。
+如果任务存在会改变方向的歧义，Agent 会先问一个关键问题；方向确定后，就会自动完成检索、证据收集和结果整理。
 
 ## Skill 如何工作
 
-不同 Skill 的具体步骤会不同，但通常会经历：
+每个 Skill 都有自己的拿手好戏，但通常会经历：
 
 ```mermaid
 flowchart LR
@@ -122,15 +122,15 @@ python3 -m unittest discover -s ew-repo-scout/tests -v
 
 需要更高 GitHub API 配额或 Code Search 时，设置 `GITHUB_TOKEN` 或 `GH_TOKEN`。未认证请求仍可使用 Repository、Topic 和 README 检索，但更容易遇到 GitHub 限流。
 
-## 参与贡献
+## 一起来贡献
 
-EW-Skills 会持续增加和改进。欢迎提交 Issue 或 Pull Request：
+EW-Skills 还在不断成长，欢迎来一起把它变得更好！发现问题就提 Issue，想到改进就发 Pull Request，想分享自己的 Skill 也可以直接来：
 
 - 改进现有 Skill 的工作流和证据标准；
 - 修复脚本、工具调用和输出问题；
 - 提交新的、可复用的 Skill。
 
-你可以 Fork 后按自己的工作流修改。贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+不管是改一行文案、修一个小问题，还是带来一个全新的 Skill，都欢迎。你也可以先 Fork，按自己的工作流改起来。详细流程见 [中文贡献说明](CONTRIBUTING.zh-CN.md)。
 
 ## 许可证
 
@@ -138,6 +138,6 @@ EW-Skills 会持续增加和改进。欢迎提交 Issue 或 Pull Request：
 
 <div align="center">
 
-**让每个好想法，都能更快找到下一步。**
+**带着你的想法来，一起把下一步做出来。**
 
 </div>
