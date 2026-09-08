@@ -1,14 +1,16 @@
 # Contributing
 
-欢迎提交 Issue 和 Pull Request！你可以反馈使用中遇到的问题、改进现有 Skill，或贡献自己的 Skill。
+[中文](CONTRIBUTING.zh-CN.md)
 
-EW-Skills 是一个持续更新的 AI Agent Skill 集合。提交新 Skill 或修改现有 Skill 时，请保持每个 Skill 自包含、可读、可修改，并说明它解决的用户问题。
+Issues and pull requests are welcome. You can report a problem, improve an existing Skill, or contribute a new one.
 
-提交前请：
+EW-Skills is a growing collection of AI Agent skills. Keep each Skill self-contained, readable, and easy to change. Explain the user problem it solves.
 
-1. 更新对应 Skill 的 `SKILL.md` 和 README/参考文档；
-2. 运行该 Skill 的测试和 `quick_validate.py`（如果适用）；
-3. 确认示例、路径和外部链接没有包含个人凭据或本地私有信息；
-4. 在 Pull Request 中说明用户场景、行为变化和验证方式。
+Before opening a PR:
 
-不要提交 API Token、缓存、个人数据或生成的 `__pycache__` 文件。
+1. Update the Skill's `SKILL.md` and its README or reference docs.
+2. Run the Skill's tests and `quick_validate.py` when available.
+3. Check that examples, paths, and links contain no credentials or private local data.
+4. Describe the user scenario, behavior change, and validation in the PR.
+
+Do not commit API tokens, caches, personal data, or generated `__pycache__` files.

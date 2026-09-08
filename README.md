@@ -1,46 +1,141 @@
+<div align="center">
+
 # EW-Skills
 
-为有想法、想动手的开发者和 AI 实践者，持续打磨实用的 Skills。欢迎一起贡献。
+[中文](README.zh-CN.md)
 
-## 当前 Skill
+### Turn good ideas into skills your AI agent can use
 
-### [EW-Repo Scout](ew-repo-scout/)
+Practical, reusable, evidence-driven skills for developers and AI practitioners.
 
-**有了 idea，先看看 GitHub 上谁做过，做到了哪一步。**
+<p>
+  <a href="https://github.com/Ethan-Wang-dev/EW-Skills/stargazers"><img src="https://img.shields.io/github/stars/Ethan-Wang-dev/EW-Skills?style=flat-square&color=gold" alt="GitHub stars"></a>
+  <a href="https://github.com/Ethan-Wang-dev/EW-Skills/network/members"><img src="https://img.shields.io/github/forks/Ethan-Wang-dev/EW-Skills?style=flat-square" alt="GitHub forks"></a>
+  <a href="https://github.com/Ethan-Wang-dev/EW-Skills/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Ethan-Wang-dev/EW-Skills?style=flat-square" alt="License"></a>
+  <a href="https://github.com/Ethan-Wang-dev/EW-Skills"><img src="https://img.shields.io/badge/AI%20agents-Codex%20%7C%20Claude%20Code-6f42c1?style=flat-square" alt="AI agents"></a>
+</p>
 
-准备做一个产品、工具或 Skill，却不知道有没有现成项目可以参考？把想法告诉 EW-Repo Scout，它帮你找到相似项目，读懂它们怎么用、解决了什么，再对照你的想法讲清差异。
+[Get started](#get-started) · [EW-Repo Scout](ew-repo-scout/) · [Contribute](CONTRIBUTING.md)
 
-- **换几种思路帮你找**：从你要解决的问题、用户会怎么用、需要哪些功能出发搜索，补充单个关键词容易漏掉的项目。
-- **看清到底像不像**：同样说“收集想法”，一个可能帮个人记灵感，另一个却用来收集团队建议。它会看谁在用、怎么用、最后得到什么。
-- **关键功能读源码确认**：“自动保存”究竟是点一下保存，还是后台持续同步？对重点项目沿着关键步骤查看实现；没确认的会说清楚。
-- **知道哪个值得先看**：告诉你能借鉴什么、还差什么，并附上维护状态、成熟度和许可证，让你少翻仓库、少走弯路。
+</div>
 
-适合在动手开发前找参考，也适合已有项目后寻找相似方案；你也可以直接用它寻找满足当前任务的现成 Skill。查看 [详细说明](ew-repo-scout/README.md)。
+---
 
-## 使用
+## What is this?
 
-直接对 Codex 或 Claude Code 说：
+EW-Skills is a growing collection of skills for AI coding agents. Each skill turns a difficult task into a clear workflow, useful tools, and an output you can check.
+
+The first skill is **EW-Repo Scout**. Before you build a product, tool, or new skill, it finds related GitHub projects and shows their users, workflows, evidence, and boundaries.
+
+## Why use it?
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔎 Search from the real problem
+
+Build queries from the user task, situation, and desired result. This avoids the false matches caused by searching one keyword.
+
+</td>
+<td width="50%">
+
+### 🧭 Make “similar” clear
+
+Separate direct products, adjacent products, technical components, and references. Rate product fit, feature coverage, and technical fit independently.
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🧪 Check the key path
+
+Trace the entry, processing, state or storage, and output for important projects. If the docs do not prove a claim, mark it as unconfirmed.
+
+</td>
+<td width="50%">
+
+### 📋 Get a report you can act on
+
+See the workflow, overlap, differences, maintenance, maturity, license, and evidence links. Decide what to use, borrow, or explore next.
+
+</td>
+</tr>
+</table>
+
+## Get started
+
+Tell Codex or Claude Code:
 
 ```text
-帮我安装 https://github.com/Ethan-Wang-dev/EW-Skills 中的 ew-repo-scout Skill。
+Install the ew-repo-scout Skill from https://github.com/Ethan-Wang-dev/EW-Skills.
 ```
 
-装好后，说出你的想法：
+Then describe your idea or task:
 
 ```text
-用 EW-Repo Scout 帮我找：有没有能把网页剪藏到本地、方便个人整理和搜索的开源项目？
+Use EW-Repo Scout to find an existing Skill that saves web articles as Markdown and explain how to install and use it.
 ```
 
-也可以直接找现成 Skill：
+If the search direction is unclear, the agent asks one focused question first. After that it handles retrieval, evidence collection, and the report for you.
+
+## EW-Repo Scout workflow
+
+```mermaid
+flowchart LR
+    A[Describe an idea or task] --> B[Clarify users and situation]
+    B --> C[Search GitHub from several angles]
+    C --> D[Read README and project evidence]
+    D --> E[Check the key workflow in source]
+    E --> F[Compare fit, differences, and status]
+    F --> G[Write project cards and next steps]
+```
+
+### What the report answers
+
+| Question | What you get |
+| --- | --- |
+| Who built something similar? | Candidate repositories, discovery paths, and product positioning |
+| Is it really similar? | A comparison of users, problem, workflow, and outcome |
+| Does the key feature exist? | A source observation, documentation claim, or an explicit unknown |
+| Which project should I read first? | Separate product, feature, and technical fit ratings |
+| Can I reuse it? | Maintenance, maturity, license, and boundaries |
+
+## Repository layout
 
 ```text
-帮我找一个能把网页文章整理成 Markdown 的 Skill，并告诉我怎么安装和使用。
+EW-Skills/
+├── ew-repo-scout/
+│   ├── SKILL.md                    # Skill rules and output requirements
+│   ├── agents/openai.yaml          # Codex display name and default prompt
+│   ├── scripts/
+│   │   ├── github_discover.py      # GitHub retrieval, deduplication, and evidence
+│   │   ├── render_report.py         # Validate and render project cards
+│   │   └── evaluate_results.py     # Maintainer-only evaluation
+│   ├── references/                 # Retrieval, comparison, and report rules
+│   └── tests/                      # Regression tests
+├── CONTRIBUTING.md
+├── LICENSE
+└── README.md
 ```
 
-## 更新与贡献
+## Contribute
 
-我们会持续增加和改进 Skills。欢迎提交 Issue 反馈使用体验，也欢迎直接提交 PR：修复问题、改进现有 Skill，或带来你自己做的 Skill。
+EW-Skills will keep growing. Open an Issue or Pull Request to:
 
-想按自己的习惯调整？欢迎 Fork 和修改。贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+- improve a skill's workflow or evidence rules;
+- fix retrieval, deduplication, or report rendering;
+- add a useful, reusable skill.
 
-本项目采用 [MIT License](LICENSE)。
+Fork the repository and adapt any skill to your workflow. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+Released under the [MIT License](LICENSE).
+
+<div align="center">
+
+**Every good idea deserves a faster next step.**
+
+</div>
