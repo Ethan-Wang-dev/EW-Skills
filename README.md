@@ -79,6 +79,16 @@ Turn scattered projects, information, and judgments into a clear path to use, va
 </tr>
 </table>
 
+### What does the report answer?
+
+| Question | What you get |
+| --- | --- |
+| Who built something similar? | **Candidate repositories**, **discovery paths**, and **product positioning** |
+| Is it really similar? | A comparison of **users**, **problems**, **workflows**, and **outcomes** |
+| Does the key feature exist? | A **source observation**, **documentation claim**, or an explicit **unknown** |
+| Which project should I read first? | Separate **product**, **feature**, and **technical fit** ratings |
+| Can I reuse it? | **Maintenance**, **maturity**, **license**, and **boundaries** |
+
 ## Get started
 
 Tell Codex or Claude Code:
@@ -108,16 +118,6 @@ flowchart LR
     E --> F[Compare fit, differences, and status]
     F --> G[Write project cards and next steps]
 ```
-
-### What the report answers
-
-| Question | What you get |
-| --- | --- |
-| Who built something similar? | Candidate repositories, discovery paths, and product positioning |
-| Is it really similar? | A comparison of users, problem, workflow, and outcome |
-| Does the key feature exist? | A source observation, documentation claim, or an explicit unknown |
-| Which project should I read first? | Separate product, feature, and technical fit ratings |
-| Can I reuse it? | Maintenance, maturity, license, and boundaries |
 
 ## Repository layout
 
