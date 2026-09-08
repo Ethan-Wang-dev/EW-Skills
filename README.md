@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/profile-avatar.jpg" alt="EW-Skills profile avatar" width="360">
+<img src="assets/ew-skills-avatar.png" alt="EW-Skills profile avatar" width="360">
 
 # EW-SKILLS
 
