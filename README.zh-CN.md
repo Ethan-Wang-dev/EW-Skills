@@ -15,7 +15,7 @@
   <a href="https://github.com/Ethan-Wang-dev/EW-Skills"><img src="https://img.shields.io/badge/AI%20agents-Codex%20%7C%20Claude%20Code-6f42c1?style=flat-square" alt="AI agents"></a>
 </p>
 
-[开始使用](#快速开始) · [查看当前 Skill](ew-repo-scout/) · [参与贡献](CONTRIBUTING.md)
+[开始使用](#快速开始) · [查看 EW-Repo Scout](ew-repo-scout/) · [参与贡献](CONTRIBUTING.md)
 
 </div>
 
@@ -27,7 +27,11 @@ EW-Skills 是一个持续更新的 AI Agent Skill 集合。每个 Skill 都把�
 
 当前仓库的第一个示例是 **EW-Repo Scout**。它帮助你在开发产品、工具或新 Skill 前，找到 GitHub 上相似的项目，弄清楚它们服务谁、解决什么问题、怎么工作，以及哪些地方值得借鉴。它只是 EW-Skills 的一个示例，后续还会加入更多 Skill。
 
-## 为什么值得用
+## EW-Repo Scout
+
+在 GitHub 上发现与 idea、Skill 或产品相似的开源项目，并比较目标用户、问题、工作流、产品差异和实现证据。它也可以帮你寻找满足当前任务的现成 Skill，并说明安装、调用方式和前置条件。
+
+### 为什么值得用
 
 <table>
 <tr>
@@ -63,12 +67,6 @@ EW-Skills 是一个持续更新的 AI Agent Skill 集合。每个 Skill 都把�
 </td>
 </tr>
 </table>
-
-## 当前 Skill
-
-### [EW-Repo Scout](ew-repo-scout/)
-
-在 GitHub 上发现与 idea、Skill 或产品相似的开源项目，并比较目标用户、问题、工作流、产品差异和实现证据。它也可以帮你寻找满足当前任务的现成 Skill，并说明安装、调用方式和前置条件。
 
 ## 快速开始
 
