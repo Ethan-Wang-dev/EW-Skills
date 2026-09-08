@@ -33,6 +33,11 @@ class ReportTests(unittest.TestCase):
         self.assertIn("Skill 使用者：AI 实践者", report)
         self.assertIn("用户与场景：内容研究者", report)
 
+    def test_adoption_path_is_visible(self):
+        data = fixture()
+        data["projects"][0]["adoption"] = "安装后调用 /clip"
+        self.assertIn("使用方式：安装后调用 /clip", render_report.render(data))
+
     def test_renders_reasoned_stars_and_unknown_separately(self):
         report = render_report.render(fixture())
         self.assertIn("⭐️⭐️⭐️⭐️（4/5） 主要工作流一致", report)
@@ -48,7 +53,7 @@ class ReportTests(unittest.TestCase):
         self.assertIn("许可证：", report)
 
     def test_each_recommended_project_requires_all_product_fields(self):
-        for key in ("target_user", "scenario", "workflow", "maintenance", "maturity", "functional_match"):
+        for key in ("target_user", "scenario", "workflow", "adoption", "maintenance", "maturity", "functional_match"):
             data = fixture()
             del data["projects"][0][key]
             with self.subTest(key=key), self.assertRaises(ValueError):

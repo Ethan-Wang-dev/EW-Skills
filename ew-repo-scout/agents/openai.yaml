@@ -1,4 +1,4 @@
 interface:
   display_name: "EW-Repo Scout"
   short_description: "面向开发者和 AI 实践者发现 GitHub 相似项目并比较产品差异"
-  default_prompt: "分析这个 idea，找出 GitHub 上相似的开源项目，比较目标用户、问题、工作流、产品差异和实现证据。"
+  default_prompt: "帮我找满足这个需求的现成 Skill 或相似 GitHub 项目，并比较目标用户、能力、使用方式、产品差异和实现证据。"

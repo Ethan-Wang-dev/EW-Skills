@@ -12,7 +12,7 @@ from pathlib import Path
 
 IDEA_FIELDS = ("original", "requester", "target_user", "scenario", "problem", "outcome",
                "current_alternative", "form_and_constraints", "confirmed", "assumptions", "unknowns")
-PROJECT_FIELDS = ("repo", "relationship", "form", "target_user", "scenario", "problem",
+PROJECT_FIELDS = ("repo", "relationship", "form", "adoption", "target_user", "scenario", "problem",
                   "outcome", "maintenance", "maturity", "license", "takeaway")
 RATINGS = (("product_match", "产品匹配"), ("functional_match", "功能覆盖"), ("technical_match", "技术匹配"))
 CHECK_STATUSES = {"code_observed": "源码观察", "docs_only": "文档声明", "unknown": "未确认"}
@@ -134,6 +134,7 @@ def render(data):
         name = project["repo"]
         lines += [f"**{i}. [{name}](https://github.com/{name})**", "",
                   f"{project['relationship']} · {project['form']}", "",
+                  f"- 使用方式：{project['adoption']}",
                   f"- 用户与场景：{project['target_user']}；{project['scenario']}",
                   f"- 要解决：{project['problem']}",
                   f"- 结果：{project['outcome']}",
