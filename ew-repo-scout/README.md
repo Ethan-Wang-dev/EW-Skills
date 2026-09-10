@@ -57,6 +57,8 @@ If different interpretations would lead to different searches, the Skill asks on
 
 Product fit, feature coverage, and technical fit are separate ratings. GitHub stars are never used as a similarity or quality score.
 
+Research is saved under `repo-scout-results/YYYY-MM-DD-topic/` in your current working directory unless you choose another location. This includes the problem card, retrieval rounds, reports, and source evidence; follow-up work reuses the same directory.
+
 ## Debug the scripts
 
 From this directory:
@@ -66,7 +68,7 @@ python3 scripts/github_discover.py \
   --idea "Describe your idea or task" \
   --query "A query about the user task" \
   --query "A query about the workflow" \
-  --output /tmp/discovery.json
+  --output "./repo-scout-results/$(date +%F)-topic/discovery-round1.json"
 ```
 
 Set `GITHUB_TOKEN` or `GH_TOKEN` to enable authenticated requests and Code Search. Without a token, Repository, Topic, and README retrieval still work, but GitHub rate limits are more likely. See [`references/retrieval.md`](references/retrieval.md) for all options.

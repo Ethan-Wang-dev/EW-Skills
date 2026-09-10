@@ -4,11 +4,11 @@ Skill 主要服务有技术想法的开发者、AI 实践者和其他产品构�
 
 ## 生成方式
 
-Agent 根据已读取的证据填写 JSON，再使用报告生成器校验和渲染：
+Agent 根据已读取的证据填写 JSON，保存到本轮资料目录，再使用报告生成器校验和渲染。`scout_dir` 沿用检索时确定的目录（见 [保存规则](../SKILL.md#research-storage)），不要另存到系统临时目录：
 
 ```bash
 python3 <skill_dir>/scripts/render_report.py \
-  --input /tmp/product-comparison.json --output /tmp/product-comparison.md
+  --input "$scout_dir/product-comparison.json" --output "$scout_dir/product-comparison.md"
 ```
 
 这是正常报告生成流程，由 Agent 完成，用户不需要操作脚本。它只验证字段和星级格式，不验证事实真伪。生成失败时补齐字段或明确未知，不凭空编造。最终答复必须直接包含渲染后的完整项目卡片；Markdown/JSON 链接只补充详细证据和检索记录，不能用摘要或链接替代卡片。

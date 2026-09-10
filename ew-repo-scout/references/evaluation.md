@@ -53,10 +53,12 @@ Known Recall 是有限标注池内的召回率，不是整个 GitHub 的召回�
 
 3 = 直接相似、2 = 相邻但相关、1 = 组件或参考、0 = 无关。默认 Recall/Precision 以 2、3 为相关；NDCG 保留 0–3 的相关度差异。意图与澄清字段是人工判断，未知应为 null，不由脚本自动推断。
 
+下面的 `scout_dir` 指向待评测的已有资料目录，标签和评测输出也保存在其中。
+
 ```bash
 python3 <skill_dir>/scripts/evaluate_results.py \
-  --results /tmp/discovery.json --labels /tmp/labels.json --k 10 \
-  --output /tmp/evaluation.json
+  --results "$scout_dir/discovery-round1.json" --labels "$scout_dir/labels.json" --k 10 \
+  --output "$scout_dir/evaluation.json"
 ```
 
 可评估检索脚本的候选排序，也可评估 Agent 最终排序：最终排序文件使用 `{"repositories":[{"full_name":"owner/repo"}]}`，顺序即排名。两阶段分别评估，避免把语言模型重排效果误认为底层召回效果。

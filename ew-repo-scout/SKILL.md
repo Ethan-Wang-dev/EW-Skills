@@ -18,6 +18,13 @@ Do not treat this as a general market-sizing or commercial competitor report. Gi
 
 Finding a Skill does not install or run it automatically. Only perform installation or other external actions when the user explicitly asks.
 
+## Research storage
+
+- Unless the user specifies another location, save research under `repo-scout-results/YYYY-MM-DD-topic/` in the session's current working directory. Capture that directory before changing directories to inspect a candidate; do not default to the skill installation directory or an OS temporary directory.
+- Keep the problem card, each retrieval round's JSON, comparison JSON/Markdown, and source evidence or versioned snapshots in that research directory. Reuse it for follow-up work on the same topic, retain earlier rounds, and distinguish updated conclusions from historical reports.
+- Always pass explicit output paths to the retrieval and report scripts. If temporary scratch files are needed, copy any evidence needed to understand or resume the research into the research directory before finishing. Disposable API caches do not replace saved results.
+- Link the saved report or research directory in the final answer so the user can find it later.
+
 ## Resolve intent before retrieval
 
 This skill accepts ideas in any domain. An idea supplied for discovery is not necessarily an idea-management product. Treat product categories as hypotheses, not a fixed menu or a default workflow.
@@ -38,9 +45,13 @@ Example: “有没有快速收集、处理 idea 的项目？” leaves both the 
 4. Read [references/retrieval.md](references/retrieval.md) for query syntax, available sources, request budgets and failure handling. Resolve script paths against this skill's directory, not the session's working directory. Start with a few repository queries; add targeted topic, code or issue queries where they answer a coverage gap. Write JSON to a file so raw API data does not flood the conversation:
 
    ```bash
-   python3 <skill_dir>/scripts/github_discover.py --idea "..." --query "..." --query "..." --output /tmp/discovery.json
-   python3 <skill_dir>/scripts/github_discover.py --seed-repo owner/repo --deep-limit 1 --activity --output /tmp/project-evidence.json
+   scout_dir="$PWD/repo-scout-results/$(date +%F)-topic"
+   mkdir -p "$scout_dir"
+   python3 <skill_dir>/scripts/github_discover.py --idea "..." --query "..." --query "..." --output "$scout_dir/discovery-round1.json"
+   python3 <skill_dir>/scripts/github_discover.py --seed-repo owner/repo --deep-limit 1 --activity --output "$scout_dir/project-evidence.json"
    ```
+
+   Replace `topic` with a short task name; for follow-up work, set `scout_dir` to the existing research directory.
 
    Repository, topic, code and issue search discover candidates; README, LICENSE, release and optional recent activity provide evidence. Use existing `GITHUB_TOKEN` or `GH_TOKEN` when available. Code Search is explicitly skipped without authentication. Preserve `search_metadata`: per-query status, total counts, limits, incomplete results, cache age, errors and timing. Few results do not prove rate limiting; use actual HTTP/status evidence.
 5. Read [references/product-comparison.md](references/product-comparison.md) before judging candidates. Inspect README, documentation, homepage/demo, license and maintenance evidence. For the leading direct matches and disputed candidates, trace the decisive user-workflow steps through source: entry/trigger → processing → state/storage → output or next action. Record concrete files, call relationships and version, not merely that a clone or keyword search happened. Mark steps as code-observed, documentation-only or unconfirmed. This targeted Agent reading complements the retrieval script; it is not an automated proof that the whole workflow runs.
@@ -63,7 +74,7 @@ The quantitative evaluation material in [references/evaluation.md](references/ev
 
 ## Output
 
-For a completed report, read [references/report-template.md](references/report-template.md), write its product-comparison JSON and run `scripts/render_report.py --input <report.json> --output <report.md>`. The Agent handles this step; the user does not operate a script. Required fields and star formats are checked before readable cards are generated. Put the rendered, complete project cards directly in the final answer. A linked Markdown/JSON artifact may add detailed evidence, query logs and long URLs, but a short summary or file link must not replace the cards or omit their fields. Formatting validation does not verify truth.
+For a completed report, read [references/report-template.md](references/report-template.md), write its product-comparison JSON in the research directory and run `scripts/render_report.py --input "$scout_dir/product-comparison.json" --output "$scout_dir/product-comparison.md"`. The Agent handles this step; the user does not operate a script. Required fields and star formats are checked before readable cards are generated. Put the rendered, complete project cards directly in the final answer. A linked Markdown/JSON artifact may add detailed evidence, query logs and long URLs, but a short summary or file link must not replace the cards or omit their fields. Formatting validation does not verify truth.
 
 Product reasoning belongs in every card, while the presentation stays compact. Use the same card for every recommended project: user/scenario, problem/outcome, workflow, core capabilities, adoption or install/use path, three reasoned ratings, separate overlap/difference bullets, workflow checks, maintenance, maturity, license and why it matters. State the Skill requester once in the idea understanding, and do not repeat it in every project card unless it changes the comparison. Keep each workflow to at most five steps, capabilities to six, overlap and differences to three each, and workflow checks to five; compress wording before rendering instead of dropping evidence. Recommend at most five complete projects (usually 3–5); keep other candidates in the raw artifact. Put a one-sentence idea understanding first and a short source/coverage note last. Avoid repeating the same conclusion in the ratings, overlap, differences and takeaway; each should add a distinct decision point. Never omit unknown fields to make a report look complete. Preserve the user's corrected intent throughout.
 

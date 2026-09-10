@@ -47,6 +47,8 @@
 
 存在会改变检索方向的歧义时，Skill 会先问一个澄清问题。完成检索后，Agent 负责运行脚本和生成报告，用户不需要手动执行命令。
 
+除非你指定其他位置，资料默认保存在当前工作目录下的 `repo-scout-results/YYYY-MM-DD-topic/`，包括需求卡、各轮检索记录、报告和源码证据。同一主题的后续研究复用原目录。
+
 ## 调试脚本
 
 如果要单独调试脚本，可以在本目录运行：
@@ -56,7 +58,7 @@ python3 scripts/github_discover.py \
   --idea "自然语言描述你的 idea" \
   --query "描述用户任务的查询" \
   --query "描述工作流的查询" \
-  --output /tmp/discovery.json
+  --output "./repo-scout-results/$(date +%F)-topic/discovery-round1.json"
 ```
 
 设置 `GITHUB_TOKEN` 或 `GH_TOKEN` 可启用认证请求和 Code Search；不设置也能使用 Repository、Topic 和 README 检索，但更容易触发 GitHub 限流。完整参数和来源说明见 [`references/retrieval.md`](references/retrieval.md)。

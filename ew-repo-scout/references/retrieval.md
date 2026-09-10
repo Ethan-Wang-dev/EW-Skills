@@ -18,13 +18,17 @@
 
 从已澄清的目标用户和核心任务开始，通常先用 3–5 个短查询。GitHub 查询通常组合条件较严格，把整句中文需求译成一长串英文容易零命中。分别覆盖问题、任务动词、项目形态和同义词；不要总加 `open source`，也不要擅自添加 stars、语言、自托管或日期过滤。
 
+按 [SKILL.md 的保存规则](../SKILL.md#research-storage)，先在当前工作目录确定本轮资料目录。将 `topic` 换成简短主题名；继续已有研究时复用原目录。后续命令沿用同一个 `scout_dir`，脚本位置仍相对于 Skill 安装目录解析。
+
 ```bash
+scout_dir="$PWD/repo-scout-results/$(date +%F)-topic"
+mkdir -p "$scout_dir"
 python3 <skill_dir>/scripts/github_discover.py \
   --idea '个人网页剪藏，整理和回顾' \
   --query 'web clipper in:name,description,readme' \
   --query 'bookmark manager' \
   --topic web-clipper \
-  --limit 20 --deep-limit 8 --output /tmp/discovery.json
+  --limit 20 --deep-limit 8 --output "$scout_dir/discovery-round1.json"
 ```
 
 第一轮不足时，用 1–2 个针对性查询补充，不把所有查询同时广播到所有端点：
@@ -33,7 +37,7 @@ python3 <skill_dir>/scripts/github_discover.py \
 python3 <skill_dir>/scripts/github_discover.py \
   --code-query 'MutationObserver repo:owner/repo' \
   --issue-query '"web clipping" is:issue' \
-  --secondary-limit 8 --deep-limit 3 --output /tmp/discovery-extra.json
+  --secondary-limit 8 --deep-limit 3 --output "$scout_dir/discovery-round2.json"
 ```
 
 这只是语法示例，不是固定产品需求。不同端点的 qualifiers 不完全通用。保留两轮的原始 JSON，按仓库 ID/名称合并候选再评估，不用第二轮覆盖第一轮。
@@ -43,7 +47,7 @@ python3 <skill_dir>/scripts/github_discover.py \
 ```bash
 python3 <skill_dir>/scripts/github_discover.py \
   --seed-repo owner/repo --deep-limit 1 --activity --refresh \
-  --output /tmp/project-evidence.json
+  --output "$scout_dir/project-evidence.json"
 ```
 
 `--seed-repo` 是定向核验，评测时不能拿预先输入正确答案的结果来宣称召回能力。
