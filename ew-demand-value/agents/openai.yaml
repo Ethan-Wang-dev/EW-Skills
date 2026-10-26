@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Value"
+  short_description: "判断痛点、付费、市场与投入价值"
+  default_prompt: "Use $ew-demand-value to assess this opportunity's pain, payment evidence, market quality, channels, and delivery risks."

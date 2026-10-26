@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Source Router"
+  short_description: "按证据缺口选择网站和访问方式"
+  default_prompt: "Use $ew-demand-source-router to choose the smallest allowed source run for this evidence gap."

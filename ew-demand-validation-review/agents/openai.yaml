@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Validation Review"
+  short_description: "复盘真实行为并更新继续或停止决策"
+  default_prompt: "Use $ew-demand-validation-review to interpret this experiment and update the opportunity decision."

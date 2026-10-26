@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Community"
+  short_description: "从社区原话和抱怨发现真实问题"
+  default_prompt: "Use $ew-demand-community to find repeated complaints and workarounds from relevant public communities."

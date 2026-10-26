@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Marketplace"
+  short_description: "从服务市场验证任务、价格和付费"
+  default_prompt: "Use $ew-demand-marketplace to assess paid task demand and design a service-first test."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Evidence"
+  short_description: "整理并验证出海产品需求证据，输出可追溯机会线索与下一步行动"
+  default_prompt: "请把给定的出海产品线索整理成可追溯的需求证据，并指出尚缺哪些验证。"

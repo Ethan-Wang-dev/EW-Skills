@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Intake"
+  short_description: "明确出海需求研究的人群、场景和边界"
+  default_prompt: "Use $ew-demand-intake to turn this overseas-product idea into a focused research brief."

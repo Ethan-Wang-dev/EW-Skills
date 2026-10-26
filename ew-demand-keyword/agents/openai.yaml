@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Keyword"
+  short_description: "分析搜索词、趋势和关键词竞争"
+  default_prompt: "Use $ew-demand-keyword to investigate these demand seeds and return sourced search evidence."

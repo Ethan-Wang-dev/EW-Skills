@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Validation Assets"
+  short_description: "生成可直接测试需求的页面和推广材料"
+  default_prompt: "Use $ew-validation-assets to create the smallest honest asset for this validation experiment."

@@ -36,7 +36,68 @@
 
 EW-Skills 是一个会持续长大的 AI Agent Skill 集合。每个 Skill 都把一类复杂任务整理成清晰的步骤、合适的工具和可以检查的结果，让 Agent 不只是给建议，而是陪你把事情推进下去。
 
-当前仓库的第一个示例是 **EW-Repo Scout**。它帮助你在开发产品、工具或新 Skill 前，找到 GitHub 上相似的项目，弄清楚它们服务谁、解决什么问题、怎么工作，以及哪些地方值得借鉴。它只是 EW-Skills 的一个示例，后续还会加入更多 Skill。
+当前仓库包含 **21 个 Skill**：EW-Repo Scout、Codex ↔ Grok Bot 双向协作，以及由 18 个模块组成的 EW 海外产品发现系列。
+
+## 选择 Skill
+
+| 你想做什么 | 入口 |
+| --- | --- |
+| 找相似开源项目或现成 Skill，核对实现 | [ew-repo-scout](ew-repo-scout/SKILL.md) |
+| 分析出海机会、设计验证或复盘结果 | [ew-overseas-product-discovery](ew-overseas-product-discovery/SKILL.md) |
+| 让 Codex 调用 Grok Bot 查询资料 | [grok-bot-collab](grok-bot-collab/SKILL.md) |
+| 让 Grok Bot 把代码、文档和数据任务交给 Codex | [codex-offload](codex-offload/SKILL.md) |
+
+出海研究通常从总控入口开始，由它按证据缺口选择内部模块。
+
+
+## EW Demand Evidence
+
+用于出海产品需求研究的证据标准化。它先读取用户自己的知识库，将内容区分为一手经验、外部观察、解释和假设，再按频率、付费、分发、地域或风险缺口选择小批量外部来源。它不把搜索量、点赞或 AI 总结直接当成需求已验证。
+
+## EW 海外产品发现
+
+总控 Skill 只向用户呈现三个入口：
+
+- **分析机会**：先读自己的资料，明确人群和任务，只补当前缺口需要的证据，形成机会卡片。
+- **设计验证**：根据最大未知选择访谈、人工交付、服务市场、预售页、原型、社群测试、小额渠道、B2B 试点或复用/推荐测试。
+- **复盘结果**：区分合格事件、付款、复用、推荐、成本和限制，决定继续、调整、停止或再做一次实验。
+
+来源路由支持通过来源注册表进行有边界的自动批量采集，优先公开 HTTP/API，必要时使用明确开启的公开浏览器会话，也支持用户授权会话和导出文件。不依赖 Firecrawl，不绕过登录、验证码、付费墙或限流，不在网站条款禁止的范围外使用浏览器自动化；HTTP 适配器会遵守 `robots.txt`。验证材料默认只在本地生成；发布、收款、投放广告和批量外联都需要明确授权。
+
+内部模块包括：
+
+`ew-demand-intake` · `ew-demand-kb` · `ew-demand-source-router` · `ew-demand-evidence` · `ew-demand-keyword` · `ew-demand-community` · `ew-demand-marketplace` · `ew-demand-reviews` · `ew-demand-competitor` · `ew-demand-trend` · `ew-demand-geo` · `ew-demand-opportunity` · `ew-demand-value` · `ew-demand-score` · `ew-demand-validation` · `ew-validation-assets` · `ew-demand-validation-review` · `ew-overseas-product-discovery`
+
+模块交接格式见 [`data-contracts.md`](ew-overseas-product-discovery/references/data-contracts.md)。需要运行多来源采集时使用 `ew-demand-source-router/scripts/run_sources.py`；需要生成本地页面或服务材料时使用 `ew-validation-assets/scripts/build_experiment.py`；需要按预注册阈值复盘时使用 `ew-demand-validation-review/scripts/review_experiment.py`。
+
+多来源自动采集示例：
+
+```bash
+python3 ew-demand-source-router/scripts/run_sources.py \
+  --input research-run.json \
+  --output-dir ./research-runs/feedback \
+  --max-requests 5
+```
+
+只有在需要读取公开动态页面时才添加 `--allow-browser`。每次运行会生成 `research-run.json`、`evidence.jsonl`、`analysis.json`、`summary.md` 和逐来源的适配器记录。
+
+对 Similarweb、Semrush、Ahrefs、Discord 等重要但需要权限的来源，可在用户已登录的前提下显式提供 profile/state：
+
+```bash
+python3 ew-demand-source-router/scripts/run_sources.py \
+  --input research-run.json --output-dir ./research-runs/authorized \
+  --allow-authenticated-browser --browser-profile "/path/to/profile"
+```
+
+也可以先从网站导出 CSV/JSON/JSONL/HTML，再本地标准化（不会上传或复制原文件）：
+
+```bash
+python3 ew-demand-source-router/scripts/ingest_export.py \
+  --input ./exports/semrush.csv --output-dir ./research-runs/semrush-export \
+  --source semrush --source-type search --market US
+```
+
+验证码、付费墙、私有权限或限流不会被绕过；运行结果会保留限制并提示切换导出路径。
 
 ## Codex ↔ Grok Bot
 
@@ -118,9 +179,27 @@ EW-Skills 是一个会持续长大的 AI Agent Skill 集合。每个 Skill 都�
 
 如果任务存在会改变方向的歧义，Agent 会先问一个关键问题；方向确定后，就会自动完成检索、证据收集和结果整理。
 
-## Skill 如何工作
+出海系列的 18 个模块会相互引用，安装时应保留为同一 skills 目录下的兄弟文件夹。可以对 Agent 说：
 
-每个 Skill 都有自己的拿手好戏，但通常会经历：
+```text
+从 https://github.com/Ethan-Wang-dev/EW-Skills 安装完整的出海产品发现系列：
+所有 ew-demand-* 目录，以及 ew-overseas-product-discovery 和 ew-validation-assets。
+保留它们的 scripts、references、agents 文件；已有同名 Skill 时先比较差异。
+```
+
+Python 辅助脚本使用 Python 3.10+ 和标准库。浏览器采集还需要可用的 `agent-browser` CLI，并显式开启对应浏览器选项；HTTP 与本地导入不需要该 CLI。安装 Skill 不会自动提供第三方网站账号或访问权限。
+
+研究出海产品时，可以直接调用总控 Skill：
+
+```text
+使用 $ew-overseas-product-discovery 分析这个想法，先读取 ./my-research，并告诉我成本最低的下一步验证。
+使用 $ew-overseas-product-discovery 为这个机会设计预售或人工交付实验。
+使用 $ew-overseas-product-discovery 复盘这份 ExperimentRun，判断继续、调整、停止还是再做一次。
+```
+
+## EW-Repo Scout 工作流
+
+以下流程适用于开源项目检索：
 
 ```mermaid
 flowchart LR
@@ -136,6 +215,8 @@ flowchart LR
 
 ```text
 EW-Skills/
+├── grok-bot-collab/                # Codex → Grok Bot
+├── codex-offload/                  # Grok Bot → Codex
 ├── ew-repo-scout/
 │   ├── SKILL.md                    # Skill 行为规则与输出要求
 │   ├── agents/openai.yaml          # Codex 界面名称与默认提示词
@@ -145,6 +226,25 @@ EW-Skills/
 │   │   └── evaluate_results.py     # 维护者使用的评测工具
 │   ├── references/                 # 检索、比较和报告规则
 │   └── tests/                      # 回归测试
+├── ew-demand-evidence/
+│   ├── SKILL.md                    # 需求证据标准化与知识库优先规则
+│   ├── agents/openai.yaml          # Codex 界面名称与默认提示词
+│   └── references/source-adapters.md # 单站/多站来源适配器与失败回退
+├── ew-overseas-product-discovery/
+│   ├── SKILL.md                    # 端到端路由与用户侧输出
+│   └── references/data-contracts.md # 研究/证据/实验共享契约
+├── ew-validation-assets/
+│   ├── SKILL.md                    # 最小、诚实的验证材料
+│   └── scripts/build_experiment.py # 本地页面/服务材料生成器
+├── ew-demand-validation-review/
+│   ├── SKILL.md                    # 实验结果解释
+│   └── scripts/review_experiment.py # 阈值和停止条件计算器
+├── ew-demand-source-router/
+│   ├── references/source-playbooks.md # 网站缺口与回退方法
+│   ├── scripts/fetch_public.py       # 受限公开 HTTP 适配器
+│   ├── scripts/ingest_export.py      # 本地 CSV/JSON/HTML 导出标准化
+│   ├── scripts/source_registry.py    # 目标来源 URL/解析注册表
+│   └── scripts/run_sources.py        # 多来源运行器与自动汇总
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
@@ -159,6 +259,15 @@ python3 -m unittest discover -s ew-repo-scout/tests -v
 ```
 
 需要更高 GitHub API 配额或 Code Search 时，设置 `GITHUB_TOKEN` 或 `GH_TOKEN`。未认证请求仍可使用 Repository、Topic 和 README 检索，但更容易遇到 GitHub 限流。
+
+验证辅助脚本测试：
+
+```bash
+python3 -m unittest discover -s ew-demand-source-router/tests -v
+python3 -m unittest discover -s ew-overseas-product-discovery/tests -v
+python3 -m unittest discover -s ew-validation-assets/tests -v
+python3 -m unittest discover -s ew-demand-validation-review/tests -v
+```
 
 ## 一起来贡献
 

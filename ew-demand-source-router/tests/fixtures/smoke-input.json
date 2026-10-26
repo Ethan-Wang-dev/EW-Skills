@@ -1,0 +1,14 @@
+{
+  "brief": {
+    "target_user": "indie developers",
+    "market": "US",
+    "evidence_gaps": ["frequency", "value_or_payment", "competition"]
+  },
+  "sources": [
+    {"source": "github", "query": "feedback collection", "limit": 2},
+    {"source": "huggingface", "query": "feedback", "limit": 2},
+    {"source": "app_store", "query": "feedback", "limit": 2},
+    {"source": "reddit", "query": "feedback workflow", "limit": 2},
+    {"source": "semrush", "query": "feedback workflow"}
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Overseas Product Discovery"
+  short_description: "从想法到验证，推进出海产品机会"
+  default_prompt: "Use $ew-overseas-product-discovery to analyze this overseas-product idea and choose the next validation action."

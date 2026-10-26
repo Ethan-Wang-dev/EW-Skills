@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Knowledge Base"
+  short_description: "从用户知识库提取一手洞察与研究缺口"
+  default_prompt: "Use $ew-demand-kb to classify this research folder into first-party evidence, assumptions, and gaps."

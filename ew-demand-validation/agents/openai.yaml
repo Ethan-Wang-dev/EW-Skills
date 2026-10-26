@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Validation"
+  short_description: "选择最低成本的真实需求验证方式"
+  default_prompt: "Use $ew-demand-validation to choose the fastest credible test for this opportunity and define its success threshold."

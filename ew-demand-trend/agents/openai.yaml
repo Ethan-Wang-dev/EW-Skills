@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Trend"
+  short_description: "监测新词、新模型和新机会"
+  default_prompt: "Use $ew-demand-trend to turn these emerging signals into dated, testable demand hypotheses."

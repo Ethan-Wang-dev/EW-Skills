@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Geo"
+  short_description: "分析国家、支付和本地化价值"
+  default_prompt: "Use $ew-demand-geo to compare the most plausible markets for this user job and price test."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Opportunity"
+  short_description: "把证据聚类成可验证的机会卡片"
+  default_prompt: "Use $ew-demand-opportunity to cluster these evidence records into opportunity cards with explicit gaps."

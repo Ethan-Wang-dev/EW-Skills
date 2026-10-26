@@ -1,0 +1,10 @@
+{
+  "brief": {
+    "target_user": "researcher",
+    "market": "US",
+    "evidence_gaps": ["frequency"]
+  },
+  "sources": [
+    {"source": "google_trends", "query": "AI", "geo": "US", "limit": 1}
+  ]
+}

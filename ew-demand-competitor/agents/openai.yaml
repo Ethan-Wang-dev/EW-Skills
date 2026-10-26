@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Competitor"
+  short_description: "分析竞品、价格和获客渠道"
+  default_prompt: "Use $ew-demand-competitor to compare these competitors and identify a testable product or channel gap."

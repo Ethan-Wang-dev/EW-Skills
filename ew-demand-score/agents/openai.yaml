@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Score"
+  short_description: "按证据和不确定性排序机会"
+  default_prompt: "Use $ew-demand-score to rank these opportunities without hiding their evidence gaps."

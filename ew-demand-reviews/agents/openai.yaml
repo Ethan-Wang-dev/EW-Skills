@@ -1,0 +1,4 @@
+interface:
+  display_name: "EW Demand Reviews"
+  short_description: "从差评提取竞品缺口和痛点"
+  default_prompt: "Use $ew-demand-reviews to analyze repeated competitor complaints and turn them into testable gaps."
