@@ -38,6 +38,19 @@ EW-Skills 是一个会持续长大的 AI Agent Skill 集合。每个 Skill 都�
 
 当前仓库的第一个示例是 **EW-Repo Scout**。它帮助你在开发产品、工具或新 Skill 前，找到 GitHub 上相似的项目，弄清楚它们服务谁、解决什么问题、怎么工作，以及哪些地方值得借鉴。它只是 EW-Skills 的一个示例，后续还会加入更多 Skill。
 
+## Codex ↔ Grok Bot
+
+双向通讯由两个互补的 Skill 组成：
+
+| 方向 | Skill | 工作流 |
+| --- | --- | --- |
+| Codex → Grok Bot | [grok-bot-collab](grok-bot-collab/SKILL.md) | 通过 MCP 查询 X、只读邮件和浏览器资料；已有 `gbask` 作为异步备用通道 |
+| Grok Bot → Codex | [codex-offload](codex-offload/SKILL.md) | 把代码、文档与数据任务交给在线 Mac，独立验收、有限返工并回传结果 |
+
+将 `grok-bot-collab` 安装到 Codex skills 目录；将 `codex-offload` 加入 Grok Bot 可读取的 workflow/skill 指引。**这次发布的是工作流 Skill，MCP 桥接、gbask webhook 和 codex-hub 运行器需要另行部署。** 详见 [MCP 前置条件](grok-bot-collab/references/setup.md)、[gbask 协议](grok-bot-collab/references/gbask.md) 和 [codex-hub 前置条件](codex-offload/references/runner.md)。
+
+2026-10-26 更新：按当前 MCP schema 与本机运行器源码梳理既有 skill，移除个人账号标识，补齐状态处理和失败恢复。已验证 MCP 工具发现与一次只读 Grok Bot 通讯；本次未测试 webhook 回传或新增真实 Codex 委派任务。
+
 ## EW-Repo Scout
 
 在 GitHub 上发现与 idea、Skill 或产品相似的开源项目，并比较目标用户、问题、工作流、产品差异和实现证据。它也可以帮你寻找满足当前任务的现成 Skill，并说明安装、调用方式和前置条件。

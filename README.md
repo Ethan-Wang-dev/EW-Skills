@@ -36,7 +36,20 @@
 
 EW-Skills is a collection of AI Agent Skills that keeps growing. Each Skill turns a difficult task into a clear workflow, useful tools, and a result you can check, so your agent can help move the work forward with you.
 
-The first example is **EW-Repo Scout**. Before you build a product, tool, or new skill, it finds related GitHub projects and shows their users, workflows, evidence, and boundaries. It is one example in EW-Skills; more skills will follow.
+The collection includes **EW-Repo Scout** and **Codex ↔ Grok Bot** collaboration skills. EW-Repo Scout is the first example. Before you build a product, tool, or new skill, it finds related GitHub projects and shows their users, workflows, evidence, and boundaries. It is one example in EW-Skills; more skills will follow.
+
+## Codex ↔ Grok Bot
+
+Two complementary skills organize delegation in both directions:
+
+| Direction | Skill | Workflow |
+| --- | --- | --- |
+| Codex → Grok Bot | [grok-bot-collab](grok-bot-collab/SKILL.md) | Read-only X, mail, and browser research through MCP; existing `gbask` as an async fallback |
+| Grok Bot → Codex | [codex-offload](codex-offload/SKILL.md) | Delegate coding, documents, and data to a connected Mac; independent checks, bounded revisions, and result delivery |
+
+Install `grok-bot-collab` in your Codex skills directory. Add `codex-offload` to the receiving Grok Bot's workflow/skill instructions. These are workflow skills: **the MCP bridge, gbask webhook, and codex-hub runtime must already be deployed separately**. See [MCP prerequisites](grok-bot-collab/references/setup.md), [gbask protocol](grok-bot-collab/references/gbask.md), and [codex-hub prerequisites](codex-offload/references/runner.md).
+
+Updated 2026-10-26: reconciled existing skills with live MCP schemas and local runner source, removed account-specific identifiers, and documented task states and recovery. MCP discovery and a read-only Grok Bot consultation were verified; webhook delivery and a fresh Codex offload were not tested in this update.
 
 ## EW-Repo Scout
 
